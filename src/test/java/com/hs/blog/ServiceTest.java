@@ -1,6 +1,5 @@
 package com.hs.blog;
 
-import com.hs.blog.entity.ArticleInfo;
 import com.hs.blog.service.IArticleService;
 import com.hs.blog.service.ISysService;
 import org.junit.Test;
@@ -27,10 +26,5 @@ public class ServiceTest {
 
     @Test
     public void sys(){
-        ArticleInfo articleInfo = new ArticleInfo();
-        articleInfo.setTitle("1");
-        articleInfo.setIsTop(true);
-        iArticleService.ceshi(articleInfo);
-        System.out.println(articleInfo.getId());
     }
 }
