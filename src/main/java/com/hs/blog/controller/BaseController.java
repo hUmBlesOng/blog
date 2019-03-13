@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
- * TODO: 基础抽象Controller类
+ * TODO: 基础Controller类
  */
 public abstract class BaseController {
     protected Logger logger = LoggerFactory.getLogger(this.getClass());
