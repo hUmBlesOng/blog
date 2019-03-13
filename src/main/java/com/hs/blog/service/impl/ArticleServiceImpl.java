@@ -67,9 +67,14 @@ public class ArticleServiceImpl implements IArticleService {
         articleInfoMapper.insertSelective(articleInfo);
         Long articleId = articleInfo.getId();
 
-                // 增加文章题图信息 - pictureUrl/articleId
+        // 增加文章题图信息 - pictureUrl/articleId
         ArticlePicture articlePicture = new ArticlePicture();
-        articlePicture.setPictureUrl(articleDto.getPictureUrl());
+        if(articlePicture.getPictureUrl()==null || "".equals(articlePicture.getPictureUrl())){
+            articlePicture.setPictureUrl("https://i.loli.net/2019/03/13/5c88c8a8d3606.jpg");
+        }else{
+            articlePicture.setPictureUrl(articleDto.getPictureUrl());
+        }
+
         articlePicture.setArticleId(articleId);
         articlePicture.setCreateBy(nowDate);
         articlePictureMapper.insertSelective(articlePicture);
@@ -271,22 +276,14 @@ public class ArticleServiceImpl implements IArticleService {
         List<ArticleWithPictureDto> articles = new ArrayList<>();
         for (ArticleCategory articleCategory : articleCategories) {
             Long articleId = articleCategory.getArticleId();
-//            ArticleWithPictureDto articleWithPictureDto = new ArticleWithPictureDto();
 //            // 填充文章基础信息
             ArticleInfoExample example1 = new ArticleInfoExample();
             example1.createCriteria().andIdEqualTo(articleId);
             ArticleInfo articleInfo = articleInfoMapper.selectByExample(example1).get(0);
-//            articleWithPictureDto.setId(articleInfo.getId());
-//            articleWithPictureDto.setTitle(articleInfo.getTitle());
-//            articleWithPictureDto.setSummary(articleInfo.getSummary());
-//            articleWithPictureDto.setTop(articleInfo.getIsTop());
-//            articleWithPictureDto.setTraffic(articleInfo.getTraffic());
 //            // 填充文章图片信息
             ArticlePictureExample example2 = new ArticlePictureExample();
             example2.createCriteria().andArticleIdEqualTo(articleInfo.getId());
             ArticlePicture articlePicture = articlePictureMapper.selectByExample(example2).get(0);
-//            articleWithPictureDto.setArticlePictureId(articlePicture.getId());
-//            articleWithPictureDto.setPictureUrl(articlePicture.getPictureUrl());
             articles.add(articleWithPictureDTOMapper.createArticleWithPictureDto(articleInfo, articlePicture));
         }
 
@@ -341,19 +338,9 @@ public class ArticleServiceImpl implements IArticleService {
         List<ArticleInfo> articleInfos = articleInfoMapper.selectByExample(example);
         List<ArticleWithPictureDto> articles = new ArrayList<>();
         for (ArticleInfo articleInfo : articleInfos) {
-//            ArticleWithPictureDto articleWithPictureDto = new ArticleWithPictureDto();
-//            // 填充文章基础信息
-//            articleWithPictureDto.setId(articleInfo.getId());
-//            articleWithPictureDto.setTitle(articleInfo.getTitle());
-//            articleWithPictureDto.setSummary(articleInfo.getSummary());
-//            articleWithPictureDto.setTop(articleInfo.getIsTop());
-//            articleWithPictureDto.setTraffic(articleInfo.getTraffic());
-//            // 填充文章题图信息
             ArticlePictureExample example1 = new ArticlePictureExample();
             example1.or().andArticleIdEqualTo(articleInfo.getId());
             ArticlePicture articlePicture = articlePictureMapper.selectByExample(example1).get(0);
-//            articleWithPictureDto.setArticlePictureId(articlePicture.getId());
-//            articleWithPictureDto.setPictureUrl(articlePicture.getPictureUrl());
             articles.add(articleWithPictureDTOMapper.createArticleWithPictureDto(articleInfo, articlePicture));
         }
         return articles;
