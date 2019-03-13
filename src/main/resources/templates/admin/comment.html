@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>个人博客后台</title>
+    <!-- Bootstrap Styles-->
+    <!-- Bootstrap Styles-->
+    <link th:href="@{/assets/css/bootstrap.css}" href="assets/css/bootstrap.css" rel="stylesheet"/>
+    <!-- FontAwesome Styles-->
+    <!--<link href="assets/css/font-awesome.css" rel="stylesheet" />-->
+    <link th:href="@{//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css}" href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Morris Chart Styles-->
+    <link th:href="@{/assets/js/morris/morris-0.4.3.min.css}" href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet"/>
+    <!-- Custom Styles-->
+    <link th:href="@{/assets/css/custom-styles.css}" href="assets/css/custom-styles.css" rel="stylesheet"/>
+    <!-- Google Fonts-->
+    <link th:href="@{https://fonts.googleapis.com/css?family=Open+Sans}" href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <!-- TABLE STYLES-->
+    <link th:href="@{/assets/js/dataTables/dataTables.bootstrap.css}" href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet"/>
+    <style>
+        label {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="wrapper">
+
+    <div th:insert="~{/admin/common/bar::topbar}"></div>
+
+    <div th:insert="~{/admin/common/bar::navbar}"></div>
+
+    <div id="page-wrapper">
+        <div id="page-inner">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-header">
+                        评论管理
+                        <small>Article Comment of my blog</small>
+                    </h1>
+                </div>
+            </div>
+            <!-- /. ROW  -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            评论列表
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>文章列表</label>
+                                    <select id="articleList">
+                                        <option value="">请选择文章</option>
+                                        <option th:if="${articleList!=null}" th:each="article:${articleList}"
+                                                th:value="${article.id}" th:text="${article.title}" value="volvo">Volvo</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered table-hover"
+                                               id="dataTables-comments">
+                                            <thead>
+                                            <tr>
+                                                <th>评论ID</th>
+                                                <th>评论内容</th>
+                                                <th>用户名称</th>
+                                                <th>Email</th>
+                                                <th>IP</th>
+                                                <th>留言时间</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="tbody-comments">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div th:insert="~{/admin/common/footer::foot}"></div>
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+</div>
+<!-- /. WRAPPER  -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header alert-danger">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">警告信息</h4>
+            </div>
+            <div class="modal-body">
+                请确认是否删除！
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="confirmBtn" class="btn btn-danger" data-dismiss="modal" articleCommentId="">
+                    确认
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- /. END MODAL -->
+
+<!-- JS Scripts-->
+<!-- jQuery Js -->
+<script th:src="@{/assets/js/jquery-1.10.2.js}" src="assets/js/jquery-1.10.2.js"></script>
+<!-- Bootstrap Js -->
+<script th:src="@{/assets/js/bootstrap.min.js}" src="assets/js/bootstrap.min.js"></script>
+<!-- Metis Menu Js -->
+<script th:src="@{/assets/js/jquery.metisMenu.js}" src="assets/js/jquery.metisMenu.js"></script>
+<!-- Morris Chart Js -->
+<script th:src="@{/assets/js/morris/raphael-2.1.0.min.js}" src="assets/js/morris/raphael-2.1.0.min.js"></script>
+<script th:src="@{/assets/js/morris/morris.js}" src="assets/js/morris/morris.js"></script>
+<!-- DATA TABLE SCRIPTS -->
+<script th:src="@{/assets/js/dataTables/jquery.dataTables.js}" src="assets/js/dataTables/jquery.dataTables.js"></script>
+<script th:src="@{/assets/js/dataTables/dataTables.bootstrap.js}" src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+<!-- 引入自己写的JS -->
+<script th:src="@{/assets/js/pages/commont.js}" src="assets/js/pages/commont.js"></script>
+<!-- Custom Js -->
+<script th:src="@{/assets/js/custom-scripts.js}" src="assets/js/custom-scripts.js"></script>
+
+</body>
+
+</html>

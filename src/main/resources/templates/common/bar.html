@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <nav th:fragment="topbar" id='top'>
+        <span id='logo' style='float: left;margin-left: 10px;'>
+            <img th:src="@{/img/logo.png}" src='img/logo.png'/></span>
+            <a th:href="@{/index}" href='/index.html'>首页</a>
+            <a th:href="@{/blog}" href='/blog.html'>博客</a>
+            <a th:href="@{/about}" href='/about.html'>关于</a>
+            <a th:href="@{/resume}" href='/resume.html'>简历</a>
+         <span id='time' style='float: right;margin-right: 10px;'></span>
+    </nav>
+</body>
+</html>

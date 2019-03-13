@@ -1,0 +1,63 @@
+package com.hs.blog.entity;
+
+import java.util.Date;
+
+/**
+ *
+ * TODO: 文章类别POJO类
+ *
+ * @author 83998
+ * @date 2019/3/4 16:39
+ */
+
+public class ArticleCategory {
+    private Long id;
+
+    private Long categoryId;
+
+    private Long articleId;
+
+    private Date createBy;
+
+    private Date modifiedBy;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public Long getArticleId() {
+        return articleId;
+    }
+
+    public void setArticleId(Long articleId) {
+        this.articleId = articleId;
+    }
+
+    public Date getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(Date createBy) {
+        this.createBy = createBy;
+    }
+
+    public Date getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(Date modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+}

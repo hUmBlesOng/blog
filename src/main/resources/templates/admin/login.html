@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link th:href="@{/css/lrtk.css}" href="css/lrtk.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="login">
+    <div class="wrapper">
+        <div class="login">
+            <form id="form" action="admin/login" method="post" class="container offset1 loginform">
+                <div id="owl-login">
+                    <div class="hand"></div>
+                    <div class="hand hand-r"></div>
+                    <div class="arms">
+                        <div class="arm"></div>
+                        <div class="arm arm-r"></div>
+                    </div>
+                </div>
+                <div class="pad">
+                    <!--<input type="hidden" name="_csrf" value="9IAtUxV2CatyxHiK2LxzOsT6wtBE6h8BpzOmk=">-->
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="username" class="control-label fa fa-user"></label>
+                            <input id="username" name="username" placeholder="username" tabindex="1"
+                                   autofocus="autofocus" class="form-control input-medium">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <label for="password" class="control-label fa fa-asterisk"></label>
+                            <input id="password" type="password" name="password" placeholder="Password" tabindex="2"
+                                   class="form-control input-medium">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <a href="#" tabindex="5"
+                       class="btn pull-left btn-link">Github</a>
+                    <button id="submitBtn" tabindex="4" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script th:src="@{/webjars/jquery/2.0.0/jquery.min.js}" src="js/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    $(function () {
+
+        $('#login #password').focus(function () {
+            $('#owl-login').addClass('password');
+        }).blur(function () {
+            $('#owl-login').removeClass('password');
+        });
+    });
+
+</script>
+
+</body>
+</html>
