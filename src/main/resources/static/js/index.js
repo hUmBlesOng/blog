@@ -1,6 +1,11 @@
-window.onload = function() {
+$(function () {
 
-};
+	$("#showArticle").click(function () {
+		var articleId = $(this).attr("articleId");
+		var url = "article/" + articleId;
+		window.location.href = url;
+	})
+});
 
 // 按钮点击进行文章详情页
 $("#showArticle").click(function() {
@@ -14,7 +19,7 @@ $(".smallPictures img").mouseenter(function() {
 	var articleId = $(this).attr("articleId");
 	var title = $(this).attr("title");
 	var summary = $(this).attr("summary");
-	if (summary === ''){
+	if (summary == null ||summary === ''){
 		summary = ' ';
 	}
 	$("#articlePicture img").attr("src", pictureUrl);

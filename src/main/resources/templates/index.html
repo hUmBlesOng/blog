@@ -36,7 +36,7 @@
 				</div>
 
 				<!--查看文章按钮-->
-				<a id="showArticle" th:href="@{article/}+${articleList[0].id}" class="btn" th:attr="articleId=${articleList[0].id}">查看<span class="glyphicon glyphicon-chevron-right"></span></a>
+				<button id="showArticle" type="button" class="btn" th:attr="articleId=${articleList[0].id}">查看<span class="glyphicon glyphicon-chevron-right"></span></button>
 			</div>
 
 			<!--右下角的题图-->
