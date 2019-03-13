@@ -34,7 +34,7 @@ public class BackController extends BaseController {
      *
      * @return
      */
-    @PostMapping("/login")
+    @PostMapping("login")
     public String login(@RequestParam String username, @RequestParam String password,
                                 HttpServletRequest request, HttpServletResponse response) throws Exception {
         // 对用户账号进行验证,是否正确
@@ -50,7 +50,7 @@ public class BackController extends BaseController {
      * @param request
      * @return
      */
-    @GetMapping(value = {"", "/index"})
+    @GetMapping(value = {"", "index"})
     public String index(HttpServletRequest request){
         logger.info(">>>>>>>>>>初始化了index页面");
 
@@ -71,7 +71,7 @@ public class BackController extends BaseController {
      */
     @ApiOperation("进入并初始化category界面")
     @ApiImplicitParam(name = "name", value = "分类名称", required = true, dataType = "String")
-    @GetMapping(value = "/category")
+    @GetMapping(value = "category")
     public String category(HttpServletRequest request){
         logger.info(">>>>>>>>>>初始化了category页面");
 
@@ -88,7 +88,7 @@ public class BackController extends BaseController {
      */
     @ApiOperation("增加分类信息")
     @ApiImplicitParam(name = "name", value = "分类名称", required = true, dataType = "String")
-    @PostMapping("/category")
+    @PostMapping("category")
     @ResponseBody
     public RestResponseBo addCategoryInfo(@RequestBody CategoryInfo categoryInfo){
         if ("".equals(categoryInfo.getName().trim())){
@@ -113,7 +113,7 @@ public class BackController extends BaseController {
             @ApiImplicitParam(name = "id", value = "文章ID", required = true, dataType = "Long"),
             @ApiImplicitParam(name = "name", value = "分类名称", required = true, dataType = "String")
     })
-    @PutMapping("/category/{id}")
+    @PutMapping("category/{id}")
     @ResponseBody
     public RestResponseBo updateCategoryInfo(@PathVariable Long id, @RequestBody CategoryInfo categoryInfo) {
         if ("".equals(categoryInfo.getName().trim())){
@@ -135,7 +135,7 @@ public class BackController extends BaseController {
      */
     @ApiOperation("删除分类信息")
     @ApiImplicitParam(name = "id", value = "分类ID", required = true, dataType = "Long")
-    @DeleteMapping("/category/{id}")
+    @DeleteMapping("category/{id}")
     @ResponseBody
     public RestResponseBo deleteCategoryInfo(@PathVariable Long id) {
         CategoryInfo categoryInfo = iCategoryService.getOneById(id);
@@ -159,7 +159,7 @@ public class BackController extends BaseController {
      */
     @ApiOperation("获取某一条分类信息")
     @ApiImplicitParam(name = "id", value = "分类ID", required = true, dataType = "Long")
-    @GetMapping("/category/{id}")
+    @GetMapping("category/{id}")
     public CategoryInfo getCategoryInfo(@PathVariable Long id) {
         return iCategoryService.getOneById(id);
     }
@@ -171,7 +171,7 @@ public class BackController extends BaseController {
      */
     @ApiOperation("进入并初始化article页面")
     @ApiImplicitParam(name = "id", value = "分类ID", required = true, dataType = "Long")
-    @GetMapping(value = "/article")
+    @GetMapping(value = "article")
     public String article(HttpServletRequest request){
         logger.info(">>>>>>>>>>初始化了article页面");
 
@@ -197,7 +197,7 @@ public class BackController extends BaseController {
             @ApiImplicitParam(name = "content", value = "文章md源码", required = true, dataType = "String"),
             @ApiImplicitParam(name = "pictureUrl", value = "文章题图url", required = true, dataType = "String")
     })
-    @PostMapping("/article")
+    @PostMapping("article")
     @ResponseBody
     public RestResponseBo addArticle(@RequestBody ArticleDto articleDto) {
 
@@ -223,7 +223,7 @@ public class BackController extends BaseController {
      */
     @ApiOperation("获取一篇文章，内容为md源码格式")
     @ApiImplicitParam(name = "id", value = "文章ID", required = true, dataType = "Long")
-    @GetMapping("/article/{id}")
+    @GetMapping("article/{id}")
     @ResponseBody
     public RestResponseBo getArticleDtoById(@PathVariable Long id) {
         ArticleDto articleDto = iArticleService.getOneById(id);
@@ -279,7 +279,7 @@ public class BackController extends BaseController {
      * @param request
      * @return
      */
-    @GetMapping(value = "/article/list")
+    @GetMapping(value = "article/list")
     @ResponseBody
     public RestResponseBo listArticle(HttpServletRequest request){
 
@@ -292,7 +292,7 @@ public class BackController extends BaseController {
      * @param request
      * @return
      */
-    @GetMapping(value = "/article/list/{id}")
+    @GetMapping(value = "article/list/{id}")
     @ResponseBody
     public RestResponseBo listArticleByCategory(@PathVariable Long id, HttpServletRequest request){
 
@@ -307,7 +307,7 @@ public class BackController extends BaseController {
      */
     @ApiOperation("进入并初始化comment页面")
     @ApiImplicitParam(name = "id", value = "评论ID", required = true, dataType = "Long")
-    @GetMapping(value = "/comment")
+    @GetMapping(value = "comment")
     public String comment(HttpServletRequest request){
         logger.info(">>>>>>>>>>初始化了comment页面");
 
@@ -321,7 +321,7 @@ public class BackController extends BaseController {
      * @param id
      * @return
      */
-    @GetMapping(value = "/comment/article/{id}")
+    @GetMapping(value = "comment/article/{id}")
     @ResponseBody
     public RestResponseBo listCommentByArticle(@PathVariable Long id){
 

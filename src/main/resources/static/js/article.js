@@ -26,7 +26,7 @@ $('#addComment').click(function () {
     };
     // 提交AJAX请求
     $.ajax({
-        url: "/comment/article/" + articleId,
+        url: "comment/article/" + articleId,
         type: "POST",
         dataType: "json",
         contentType: "application/json;charset=utf-8",

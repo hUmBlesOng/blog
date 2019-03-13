@@ -19,7 +19,7 @@ $('#confirmBtn').click(function () {
     var id = $(this).attr("commentId");
     $.ajax({
         type: "DELETE",
-        url: "/admin/comment/" + id,
+        url: "admin/comment/" + id,
         success: function (result) {
             if(result!=null && result.success){
                 location.reload();

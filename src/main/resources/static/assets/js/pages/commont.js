@@ -6,7 +6,7 @@ $(document).ready(function() {
 function addCommentList(id) {
 	$.ajax({
 		type: "get",
-		url: "/admin/comment/article/" + id,
+		url: "admin/comment/article/" + id,
 		dataType: "json",
 		contentType: "application/json;charset=utf-8",
 		success: function(json) {
@@ -57,7 +57,7 @@ $('#confirmBtn').click(function() {
 	//	alert(id);
 	$.ajax({
 		type: "DELETE",
-		url: "/admin/comment/article/" + id,
+		url: "admin/comment/article/" + id,
 		success: function (result) {
 			if(result != null && result.success){
 				location.reload();

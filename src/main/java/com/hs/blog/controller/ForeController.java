@@ -31,7 +31,7 @@ public class ForeController extends BaseController {
      * @param request
      * @return
      */
-    @GetMapping(value = {"", "/index"})
+    @GetMapping(value = {"", "index"})
     public String index(HttpServletRequest request){
         logger.info(">>>>>>>>>>初始化了首页");
 
@@ -48,7 +48,7 @@ public class ForeController extends BaseController {
      * @return 自己封装好的文章信息类
      */
     @ApiOperation("通过文章ID获取文章信息")
-    @GetMapping("/article/{id}")
+    @GetMapping("article/{id}")
     public String getArticleById(@PathVariable Long id,
                                  HttpServletRequest request) {
         logger.info(">>>>>>>>>>初始化了文章页");
@@ -75,7 +75,7 @@ public class ForeController extends BaseController {
             @ApiImplicitParam(name = "email", value = "Email地址，用于回复", required = false, dataType = "String"),
             @ApiImplicitParam(name = "name", value = "用户自定义的名称", required = true, dataType = "String")
     })
-    @PostMapping("/comment/article/{id}")
+    @PostMapping("comment/article/{id}")
     @ResponseBody
     public RestResponseBo addArticleComment(@PathVariable Long id, @RequestBody ArticleCommentDto articleCommentDto,
                                             HttpServletRequest request) {
@@ -93,7 +93,7 @@ public class ForeController extends BaseController {
      * @param request
      * @return
      */
-    @GetMapping(value = {"/blog"})
+    @GetMapping(value = {"blog"})
     public String blog(HttpServletRequest request){
         logger.info(">>>>>>>>>>初始化了博客页");
 
@@ -112,7 +112,7 @@ public class ForeController extends BaseController {
      * @param request
      * @return
      */
-    @GetMapping(value = {"/blog/{id}"})
+    @GetMapping(value = {"blog/{id}"})
     public String listArticleByCategory(@PathVariable Long id, HttpServletRequest request){
         logger.info("执行了listArticleByCategory方法");
 
@@ -129,7 +129,7 @@ public class ForeController extends BaseController {
      * @param request
      * @return
      */
-    @GetMapping(value = {"/about"})
+    @GetMapping(value = {"about"})
     public String about(HttpServletRequest request){
         logger.info(">>>>>>>>>>初始化了关于页");
 
@@ -159,7 +159,7 @@ public class ForeController extends BaseController {
             @ApiImplicitParam(name = "email", value = "Email地址，用于回复", required = false, dataType = "String"),
             @ApiImplicitParam(name = "name", value = "用户自定义的名称", required = true, dataType = "String")
     })
-    @PostMapping("/comment")
+    @PostMapping("comment")
     @ResponseBody
     public RestResponseBo addMessage(@RequestBody Comment comment, HttpServletRequest request) {
 
@@ -175,7 +175,7 @@ public class ForeController extends BaseController {
      * @param request
      * @return
      */
-    @GetMapping(value = {"/resume"})
+    @GetMapping(value = {"resume"})
     public String resume(HttpServletRequest request){
         logger.info(">>>>>>>>>>初始化了简历页");
 

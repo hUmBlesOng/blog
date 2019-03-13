@@ -19,7 +19,7 @@ window.onload = function () {
         };
         // 提交AJAX请求
         $.ajax({
-            url: "/comment",
+            url: "comment",
             type: "POST",
             dataType: "json",
             contentType: "application/json;charset=utf-8",

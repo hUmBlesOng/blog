@@ -34,7 +34,7 @@ $(document).ready(function () {
         };
         $.ajax({
             type: "POST",
-            url: "/admin/article/",
+            url: "admin/article/",
             dataType: "json",
             contentType: "application/json;charset=utf-8",
             data: JSON.stringify(article),
@@ -78,7 +78,7 @@ $(document).ready(function () {
         };
         $.ajax({
             type: "PUT",
-            url: "/admin/article/" + articleId,
+            url: "admin/article/" + articleId,
             dataType: "json",
             contentType: "application/json;charset=utf-8",
             data: JSON.stringify(article),
@@ -105,7 +105,7 @@ $(document).ready(function () {
         var id = $(this).attr("articleId");
         $.ajax({
             type: "DELETE",
-            url: "/admin/article/" + id,
+            url: "admin/article/" + id,
             success: function (result) {
                 if(result != null && result.success){
                     location.reload();
@@ -130,9 +130,9 @@ $(document).ready(function () {
 document.getElementById("articleCategories").onchange = function () {
     var categoryId = $('#articleCategories option:selected').attr("value");
     if (categoryId === "") {
-        var url = "/admin/article/list";
+        var url = "admin/article/list";
     } else {
-        var url = "/admin/article/list/" + categoryId;
+        var url = "admin/article/list/" + categoryId;
     }
     // 填充博文分类信息
     $.ajax({
@@ -174,7 +174,7 @@ function updateArticle(id) {
     $('#updateBtn').attr("articleId", id);
     $.ajax({
         type: "get",
-        url: "/admin/article/" + id,
+        url: "admin/article/" + id,
         dataType: "json",
         success: function (result) {
             if(result != null && result.success){

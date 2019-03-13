@@ -18,7 +18,7 @@ $(function() {
 			type: "POST",
 			dataType: "json",
 			contentType: "application/json;charset=utf-8",
-			url: "/admin/category",
+			url: "admin/category",
 			data: JSON.stringify(json),
 			success: function (result) {
 				if(result != null && result.success){
@@ -57,7 +57,7 @@ $(function() {
 		};
 		$.ajax({
 			type: "PUT",
-			url: "/admin/category/" + categoryId,
+			url: "admin/category/" + categoryId,
 			data: JSON.stringify(categoryJson),
 			dataType: "json",
 			contentType: "application/json;charset=utf-8",
@@ -84,7 +84,7 @@ $(function() {
 		var id = $(this).attr("categoryId");
 		$.ajax({
 			type: "DELETE",
-			url: "/admin/category/" + id,
+			url: "admin/category/" + id,
 			success: function(result) {
 				if(result != null && result.success){
 					location.reload();
